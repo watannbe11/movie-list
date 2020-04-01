@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "creating"
+
+Movie.create!(
+  title: "movie1",
+  year: 1
+  )
+
+Movie.create!(
+  title: "movie2",
+  year: 2
+  )
+
+puts "finish"
