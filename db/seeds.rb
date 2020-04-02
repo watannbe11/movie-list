@@ -24,47 +24,13 @@ html_doc.search("tbody tr")[1..8].each do |element|
     title: element.search("td[2]").text.strip,
     year: element.search("td[7]").text.strip.to_i
     )
-  url2 = "http://www.omdbapi.com/?apikey=fb36b2dd&t=#{element.search("td[2]").text.strip}"
-  p url2
 
+  url2 = "http://www.omdbapi.com/?apikey=fb36b2dd&t=#{element.search("td[2]").text.strip}"
   html_file2 = open(url2).read
   movie_api = JSON.parse(html_file2)
-
   file = URI.open("#{movie_api["Poster"]}")
-  p file
   movie[num].photo.attach(io: file, filename: 'parasaite.jpg', content_type: 'image/jpg')
   num += 1
 end
-
-
-# movie1 = Movie.create!(
-#   title: "parasite",
-#   year: 2019
-#   )
-# file = URI.open('https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UY1200_CR90,0,630,1200_AL_.jpg')
-# movie1.photo.attach(io: file, filename: 'parasaite.jpg', content_type: 'image/jpg')
-
-#  movie2 = Movie.create!(
-#   title: "Grand Hotel",
-#   year: 1933
-#   )
-# file = URI.open('https://upload.wikimedia.org/wikipedia/commons/d/d6/GrandHotelFilmPoster.jpg')
-# movie2.photo.attach(io: file, filename: 'grandhotel.jpg', content_type: 'image/jpg')
-
-
-# movie3 = Movie.create!(
-#   title: "The Lobster",
-#   year: 2015
-# )
-# file = URI.open('https://m.media-amazon.com/images/M/MV5BNDQ1NDE5NzQ1NF5BMl5BanBnXkFtZTgwNzA5OTM2NTE@._V1_.jpg')
-# movie3.photo.attach(io: file, filename: 'lobster.jpg', content_type: 'image/jpg')
-
-# movie4 = Movie.create!(
-#   title: "The Wandering Earth",
-#   year: 2019
-# )
-# file = URI.open('https://upload.wikimedia.org/wikipedia/en/1/1b/The_Wandering_Earth_film_poster.jpg')
-# movie4.photo.attach(io: file, filename: 'wonder.jpg', content_type: 'image/jpg')
-
 
 puts "finish"
