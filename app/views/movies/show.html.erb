@@ -1,5 +1,6 @@
 <%= @movie.title %>
 <%= @movie.year %>
+<%= cl_image_tag @movie.photo.key, height: 700, width: 600, crop: :fill %>
 
 <% @movie.reviews.each do |review| %>
 <%= review.content %>
@@ -9,6 +10,6 @@
   <%= f.input :content%>
   <%= f.submit %>
 <% end %>
-
+<%= link_to "back to home", root_path %>
 
 

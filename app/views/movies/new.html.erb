@@ -1,6 +1,7 @@
- <h1>Create a new restaurant</h1>
-      <%= simple_form_for @movie do |f| %>
-        <%= f.input :title %>
-        <%= f.input :year %>
-        <%= f.submit %>
-      <% end %>
+<h1>Create a new restaurant</h1>
+<%= simple_form_for @movie do |f| %>
+  <%= f.input :title %>
+  <%= f.input :year %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>
