@@ -1,3 +1,20 @@
-<% @movies.each do |movie| %>
-<%= movie.title %>
-<% end %>
+<div class="banner"> <!-- style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(assets/bg_1.jpg);"> -->
+  <div class="container">
+  <h1 class="tag-line">Review Your Favorite Movie</h1><br>
+  <%= link_to 'Start Now', new_movie_path, class: "btn-white-small"%>
+  </div>
+</div>
+
+<h2>映画リスト</h2>
+
+
+  <div class="cards row">
+    <% @movies.each do |movie| %>
+    <%= render partial: "card", locals: { movie: movie } %>
+    <% end %>
+  </div>
+
+
+
+
+
