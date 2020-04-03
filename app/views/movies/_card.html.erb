@@ -1,9 +1,9 @@
 <div class="col-3">
 
-    <%= cl_image_tag movie.photo.key, height: 560, width: 350, crop: :fill %>
     <%= link_to movie_path(movie) do%>
-      <p><%= movie.title %></p>
+    <%= cl_image_tag movie.photo.key, height: 560, width: 350, crop: :fill %>
     <% end %>
+      <p><%= movie.title %></p>
 
 </div>
 
