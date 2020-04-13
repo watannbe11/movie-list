@@ -1,4 +1,3 @@
-
 <div class="col-12 col-md-4 col-lg-3">
   <% if movie.photo.attached?  %>
     <%= cl_image_tag movie.photo.key, height: 560, width: 350, crop: :fill, class: "img-responsive fit-image" %>
@@ -6,9 +5,10 @@
     <%= image_tag "cropped-noimage.jpg", :height => '560', :width => '350', :class => "img-responsive fit-image" %>
   <% end %>
     <%= link_to movie_path(movie) do%>
-    <%= cl_image_tag movie.photo.key, height: 560, width: 350, crop: :fill %>
+      <p><%= movie.title %></p>
     <% end %>
 </div>
+
 
 
 

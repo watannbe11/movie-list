@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-  <h1 class="tag-line">Review Your Favorite Movie</h1><br>
+  <h1 class="tag-line"> <span id="banner-typed-text"></span></h1><br>
     <%= form_tag movies_path, method: :get, :class => "form-inline m-1" do %>
       <%= text_field_tag :query,params[:query], class: "form-control", placeholder: "Find a movie"%>
       <%= submit_tag "Search", class: "btn btn-primary" %>
@@ -8,14 +8,14 @@
   </div>
 </div>
 
-  <div class="cards row m-3">
-    <div class="col-12">
-      <h2>movie list</h2>
-    </div>
-    <% @movies.each do |movie| %>
-    <%= render partial: "card", locals: { movie: movie } %>
-    <% end %>
+<div class="cards row m-3">
+  <div class="col-12">
+    <h2>movie list</h2>
   </div>
+  <% @movies.each do |movie| %>
+  <%= render partial: "card", locals: { movie: movie } %>
+  <% end %>
+</div>
 
 
 
