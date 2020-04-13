@@ -1,14 +1,17 @@
-<div class="banner"> <!-- style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(assets/bg_1.jpg);"> -->
+<div class="banner">
   <div class="container">
   <h1 class="tag-line">Review Your Favorite Movie</h1><br>
-  <%= link_to 'Start Now', new_movie_path, class: "btn-white-small"%>
+    <%= form_tag movies_path, method: :get, :class => "form-inline m-1" do %>
+      <%= text_field_tag :query,params[:query], class: "form-control", placeholder: "Find a movie"%>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
-<h2>movie list</h2>
-
-
-  <div class="cards row">
+  <div class="cards row m-3">
+    <div class="col-12">
+      <h2>movie list</h2>
+    </div>
     <% @movies.each do |movie| %>
     <%= render partial: "card", locals: { movie: movie } %>
     <% end %>
