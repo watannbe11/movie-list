@@ -1,18 +1,16 @@
-<div class="col-3">
-
-    <%= cl_image_tag movie.photo.key, height: 560, width: 350, crop: :fill %>
+<div class="col-12 col-md-4 col-lg-3">
+  <% if movie.photo.attached?  %>
+    <%= cl_image_tag movie.photo.key, height: 560, width: 350, crop: :fill, class: "img-responsive fit-image" %>
+  <% else %>
+    <%= image_tag "cropped-noimage.jpg", :height => '560', :width => '350', :class => "img-responsive fit-image" %>
+  <% end %>
     <%= link_to movie_path(movie) do%>
       <p><%= movie.title %></p>
     <% end %>
-
 </div>
 
 
 
-<!-- <div class="card-movie" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(movie.photo, width: 800, height: 600, crop: :fill) %>)">
-   <%= movie.title %>
-</div>
- -->
 
 
 

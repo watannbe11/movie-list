@@ -1,15 +1,34 @@
-<%= @movie.title %>
-<%= @movie.year %>
-<%= cl_image_tag @movie.photo.key, height: 700, width: 600, crop: :fill %>
+<div class ="container">
+  <div class="header">
+    <%= @movie.title %>
+    <%= @movie.year %>
+  </div>
+  <div class="main">
+    <div class="row">
+      <div class="col-lg-5">
+        <% if @movie.photo.attached?  %>
+          <%= cl_image_tag @movie.photo.key, height: 560, width: 350, crop: :fill, class: "img-responsive" %>
+        <% else %>
+          <%= image_tag "cropped-noimage.jpg", :height => '560', :width => '350', :class => "img-responsive" %>
+        <% end %>
+      </div>
 
-<% @movie.reviews.each do |review| %>
-<%= review.content %>
-<% end %>
+      <div class="col-lg-7">
+        <h1>plot</h1>
+        <%= @movie.plot %>
+        <h1>reviews</h1>
+        <% @movie.reviews.each do |review| %>
+          <%= review.content %>
+          <%= review.id %>
+          <%= link_to "edit", edit_movie_review_path(movie_id: @movie.id, review_id: review.id) %>
+        <% end %>
+      </div>
+  </div>
 
-<%= simple_form_for [@movie, @review] do |f| %>
-  <%= f.input :content%>
-  <%= f.submit %>
-<% end %>
-<%= link_to "back to home", root_path %>
-
+    <%= simple_form_for [@movie, @review] do |f| %>
+      <%= f.input :content%>
+      <%= f.submit %>
+    <% end %>
+  <%= link_to "back to home", root_path %>
+</div>
 
